@@ -1,0 +1,68 @@
+@import "tailwindcss";
+@import "devicon/devicon.min.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+* {
+    box-sizing: border-box;
+}
+:root {
+    --color-cv-background: var(--color-white);
+    --color-cv-foreground: var(--color-black);
+    --color-cv-text: var(--color-black);
+    --color-cv-link: #0000ee;
+    --color-cv-link-hover: #0000cc;
+    --color-cv-heading: var(--color-black);
+    --color-cv-sub-heading: var(--color-gray-600);
+
+    --color-cv-timeline-stale: var(--color-gray-300);
+    --color-cv-timeline-hover: var(--color-blue-500);
+    --color-cv-timeline-dot-stale: var(--color-gray-600);
+    --color-cv-timeline-dot-hover: var(--color-blue-500);
+
+    --color-cv-role-date-bg: var(--color-white);
+
+    --color-cv-appreance-toggle-btn-bg: var(--color-black);
+    --color-cv-appreance-toggle-btn-color: var(--color-white);
+    --color-cv-appreance-toggle-btn-border: #23272f;
+}
+
+.dark {
+    --color-cv-background: #23272f;
+    --color-cv-foreground: var(--color-white);
+    --color-cv-text: #cdcdcd;
+    --color-cv-link: #cdcdcd;
+    --color-cv-link-hover: #0000cc;
+    --color-cv-heading: var(--color-white);
+    --color-cv-sub-heading: #cccccc;
+
+    --color-cv-timeline-stale: var(--color-gray-700);
+    --color-cv-timeline-hover: var(--color-blue-500);
+    --color-cv-timeline-dot-stale: var(--color-gray-600);
+    --color-cv-timeline-dot-hover: var(--color-blue-500);
+
+    --color-cv-role-date-bg: #23272f;
+
+    --color-cv-appreance-toggle-btn-bg: var(--color-white);
+    --color-cv-appreance-toggle-btn-color: var(--color-black);
+    --color-cv-appreance-toggle-btn-border: #cdcdcd;
+}
+
+
+@theme {
+    --color-cv-background: var(--color-cv-background);
+    --color-cv-foreground: var(--color-cv-foreground);
+    --color-cv-text: var(--color-cv-text);
+    --color-cv-link: var(--color-cv-link);
+    --color-cv-link-hover: var(--color-cv-link-hover);
+    --color-cv-heading: var(--color-cv-heading);
+    --color-cv-sub-heading: var(--color-cv-sub-heading);
+    --color-cv-timeline-stale: var(--color-cv-timeline-stale);
+    --color-cv-timeline-hover: var(--color-cv-timeline-hover);
+    --color-cv-timeline-dot-stale: var(--color-cv-timeline-dot-stale);
+    --color-cv-timeline-dot-hover: var(--color-cv-timeline-dot-hover);
+    --color-cv-role-date-bg: var(--color-cv-role-date-bg);
+    --color-cv-appreance-toggle-btn-bg: var(--color-cv-appreance-toggle-btn-bg);
+    --color-cv-appreance-toggle-btn-color: var(--color-cv-appreance-toggle-btn-color);
+    --color-cv-appreance-toggle-btn-border: var(--color-cv-appreance-toggle-btn-border);
+}
