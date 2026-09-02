@@ -5,7 +5,7 @@ import ThemeToggle from '@/components/ui/ToggleTheme';
 
 const Header = () => {
   return (
-    <header>
+    <header role="banner" className="pbs-4">
       <ThemeToggle />
       <Intro />
     </header>

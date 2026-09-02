@@ -1,4 +1,4 @@
-import React, { Key } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, MoreVerticalIcon, SquareArrowOutUpRight } from 'lucide-react';
 
@@ -34,40 +34,41 @@ const TimelineCard = async ({
   const rolesList = await method(id || 0);
 
   return (
-    <div className="group ps-8 relative before:content-[''] before:absolute before:w-3 before:h-3 before:top-10.5 before:left-0 before:bg-cv-timeline-dot-stale before:z-1 hover:before:bg-cv-timeline-dot-hover before:transition-(background-color) before:transition-all before:duration-500">
-      <div className="flex items-center gap-5 after:content-[''] after:absolute after:border after:border-cv-timeline-stale after:h-full after:top-0 after:bg-gray-800 after:left-[5] after:z-0 group-hover:after:border-cv-timeline-hover after:transition-(background-color) after:transition-all after:duration-500">
-        <div className="group pbs-5">
-          <h2 className="text-[clamp(1.25rem, 1.5rem, 2rem)] font-bold">
-            <span className="text-[18px] text-cv-text">{title}</span>
+    <div className="group ps-8 relative before:content-[''] before:absolute before:w-3 before:h-3 before:top-[42px] before:left-0 before:rounded-full before:bg-cv-timeline-dot-stale before:z-1 hover:before:bg-cv-timeline-dot-hover before:transition-all before:duration-500 after:content-[''] after:absolute after:border after:border-cv-timeline-stale after:h-[calc(100%+32px)] after:top-0 after:left-[5px] after:z-0 group-hover:after:border-cv-timeline-hover after:transition-all after:duration-500">
+      <div className="pbs-5">
+        <h2 className="text-lg font-semibold text-cv-heading leading-snug">
+          <span>{title}</span>
+          {url && (
             <Link
-              href={`${url}`}
+              href={url}
               target="_blank"
-              className="text-sm text-cv-text hidden group-hover:inline-block ps-2"
+              rel="noopener noreferrer"
+              aria-label={`${title} — open website (opens in new tab)`}
+              className="hidden group-hover:inline-block ps-2 text-cv-link"
             >
-              <SquareArrowOutUpRight size={10} />
+              <SquareArrowOutUpRight size={12} aria-hidden="true" />
             </Link>
-          </h2>
-          <div className="flex items-center gap-2">
-            <div className="text-cv-text flex gap-2 relative left-0 items-center text-[13px]">
-              <div className="">{formatDate(start || '')}</div>
-              <ArrowRight size={10} />
-              <div className="">{formatDate(end || '')}</div>
-            </div>
-            {workType && (
-              <>
-                <MoreVerticalIcon size={10} />
-                <span className="text-cv-text flex gap-2 relative left-0 items-center text-[13px]">
-                  {WORK_TYPE[workType as keyof typeof WORK_TYPE]}
-                </span>
-              </>
-            )}
+          )}
+        </h2>
+        <div className="flex items-center gap-2 pbs-1">
+          <div className="text-cv-sub-heading flex gap-2 items-center text-sm">
+            <span>{formatDate(start || '')}</span>
+            <ArrowRight size={10} aria-hidden="true" />
+            <span>{formatDate(end || '')}</span>
           </div>
-          {/*{techStack && <Stack stack={stackItems} />}*/}
+          {workType && (
+            <>
+              <MoreVerticalIcon size={10} aria-hidden="true" className="text-cv-sub-heading" />
+              <span className="text-cv-sub-heading text-sm">
+                {WORK_TYPE[workType as keyof typeof WORK_TYPE]}
+              </span>
+            </>
+          )}
         </div>
       </div>
-      <div>
-        <p className="text-sm py-1 leading-6">{description}</p>
-        <div className="">
+      <div className="pbs-3">
+        <p className="text-sm leading-7 text-cv-text">{description}</p>
+        <div className="pbs-2">
           {rolesList?.map((role) => (
             <TimelineSubCards key={role?.id} {...(role as any)} />
           ))}

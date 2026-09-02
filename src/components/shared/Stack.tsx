@@ -18,17 +18,18 @@ const Stack = ({ stack }: { stack?: StackType[] }) => {
    */
   const maybeWrap = (stackItem: StackType, content: React.ReactNode) => {
     if (!stackItem?.url) {
-      return content;
+      return <span key={stackItem.id}>{content}</span>;
     }
 
     return (
       <Link
         key={stackItem.id}
         href={stackItem.url}
-        title={stackItem.name || undefined}
+        aria-label={stackItem.name || undefined}
         role="listitem"
         target="_blank"
-        rel="noopener noreferral nofollow"
+        rel="noopener noreferrer nofollow"
+        className="text-cv-text hover:text-cv-link transition-colors"
       >
         {content}
       </Link>
@@ -36,9 +37,13 @@ const Stack = ({ stack }: { stack?: StackType[] }) => {
   };
 
   return (
-    <div className="flex gap-2" role="listbox">
-      {stack?.map((contact: StackType) => maybeWrap(contact, <Icon tech={contact?.icon as any} />))}
-    </div>
+    <ul className="flex gap-2 list-none" role="list" aria-label="Tech stack">
+      {stack?.map((item: StackType) => (
+        <li key={item.id}>
+          {maybeWrap(item, <Icon tech={item?.icon as any} />)}
+        </li>
+      ))}
+    </ul>
   );
 };
 

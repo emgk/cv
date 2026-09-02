@@ -7,5 +7,13 @@ export default function NavTitle() {
   const pathname = usePathname();
 
   const currentMenu = NAV_MENUS.find((menu) => menu.href === pathname);
-  return <div className="left-2 font-bold text-sm uppercase">{currentMenu?.name || ''}</div>;
+
+  return (
+    <p
+      aria-current="page"
+      className="left-2 font-bold text-sm uppercase tracking-wide text-cv-heading"
+    >
+      {currentMenu?.name || ''}
+    </p>
+  );
 }

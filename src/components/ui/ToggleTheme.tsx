@@ -12,10 +12,15 @@ export default function ThemeToggle() {
 
   return (
     <button
-      className="absolute right-10 z-50 left-auto bg-cv-appreance-toggle-btn-bg rounded-bl-md rounded-br-md px-4 cursor-pointer border-cv-appreance-toggle-btn-border border border-t-0 max-w-37.5 invisible md:visible"
+      type="button"
+      aria-pressed={dark}
+      aria-label="Toggle colour theme"
+      className="fixed top-0 right-10 z-50 left-auto bg-cv-appreance-toggle-btn-bg rounded-bl-md rounded-br-md px-4 py-0.5 cursor-pointer border-cv-appreance-toggle-btn-border border border-t-0 max-w-37.5 hidden md:flex items-center"
       onClick={onClick}
     >
-      <span className="text-cv-appreance-toggle-btn-color">{dark ? 'Light' : 'Dark'}</span>
+      <span className="text-cv-appreance-toggle-btn-color text-sm select-none">
+        {dark ? 'Light' : 'Dark'}
+      </span>
     </button>
   );
 }

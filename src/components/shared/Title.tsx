@@ -1,7 +1,11 @@
 import React from 'react';
 
 const Title = ({ children }: { children: React.ReactNode }) => {
-  return <div className="pt-5 left-2 font-bold text-3xl">{children}</div>;
+  return (
+    <h1 className="pbs-5 font-bold text-3xl text-cv-heading leading-tight">
+      {children}
+    </h1>
+  );
 };
 
 export default Title;

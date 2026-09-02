@@ -23,15 +23,21 @@ const DMSansFont = DM_Sans({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${DMSansFont.className}  h-full antialiased`}>
+    <html lang="en" className={`${DMSansFont.className} h-full antialiased`}>
       <body className="bg-cv-background text-cv-text">
+        {/* Skip to main content — keyboard & screen-reader shortcut */}
+        <a href="#main-content" className="skip-nav">
+          Skip to main content
+        </a>
         <div className="max-w-[min(calc(100vw-40px),800px)] mx-auto min-h-[calc(100vh-150px)]">
           <Header />
           <div className="flex justify-between items-center">
             <NavTitle />
             <Nav />
           </div>
-          <section>{children}</section>
+          <section id="main-content" tabIndex={-1}>
+            {children}
+          </section>
         </div>
         <Footer />
       </body>

@@ -6,48 +6,52 @@
 * {
     box-sizing: border-box;
 }
+
 :root {
-    --color-cv-background: var(--color-white);
-    --color-cv-foreground: var(--color-black);
-    --color-cv-text: var(--color-black);
-    --color-cv-link: #0000ee;
-    --color-cv-link-hover: #0000cc;
-    --color-cv-heading: var(--color-black);
-    --color-cv-sub-heading: var(--color-gray-600);
+    --color-cv-background: #F5F4F0;
+    --color-cv-foreground: #111111;
+    --color-cv-text: #1A1A1A;
+    --color-cv-link: #1B4FD8;
+    --color-cv-link-hover: #1540B0;
+    --color-cv-heading: #111111;
+    --color-cv-sub-heading: #4B4B4B;
 
-    --color-cv-timeline-stale: var(--color-gray-300);
-    --color-cv-timeline-hover: var(--color-blue-500);
-    --color-cv-timeline-dot-stale: var(--color-gray-600);
-    --color-cv-timeline-dot-hover: var(--color-blue-500);
+    --color-cv-timeline-stale: #C4C2BC;
+    --color-cv-timeline-hover: #2563EB;
+    --color-cv-timeline-dot-stale: #6B7280;
+    --color-cv-timeline-dot-hover: #2563EB;
 
-    --color-cv-role-date-bg: var(--color-white);
+    --color-cv-role-date-bg: #F5F4F0;
 
-    --color-cv-appreance-toggle-btn-bg: var(--color-black);
-    --color-cv-appreance-toggle-btn-color: var(--color-white);
-    --color-cv-appreance-toggle-btn-border: #23272f;
+    --color-cv-appreance-toggle-btn-bg: #111111;
+    --color-cv-appreance-toggle-btn-color: #F5F4F0;
+    --color-cv-appreance-toggle-btn-border: #2D2D2D;
+
+    --color-cv-focus-ring: #2563EB;
 }
 
 .dark {
     --color-cv-background: #23272f;
     --color-cv-foreground: var(--color-white);
     --color-cv-text: #cdcdcd;
-    --color-cv-link: #cdcdcd;
-    --color-cv-link-hover: #0000cc;
+    --color-cv-link: #93C5FD;
+    --color-cv-link-hover: #BFDBFE;
     --color-cv-heading: var(--color-white);
-    --color-cv-sub-heading: #cccccc;
+    --color-cv-sub-heading: #aaaaaa;
 
     --color-cv-timeline-stale: var(--color-gray-700);
-    --color-cv-timeline-hover: var(--color-blue-500);
-    --color-cv-timeline-dot-stale: var(--color-gray-600);
-    --color-cv-timeline-dot-hover: var(--color-blue-500);
+    --color-cv-timeline-hover: #60A5FA;
+    --color-cv-timeline-dot-stale: var(--color-gray-500);
+    --color-cv-timeline-dot-hover: #60A5FA;
 
     --color-cv-role-date-bg: #23272f;
 
     --color-cv-appreance-toggle-btn-bg: var(--color-white);
     --color-cv-appreance-toggle-btn-color: var(--color-black);
     --color-cv-appreance-toggle-btn-border: #cdcdcd;
-}
 
+    --color-cv-focus-ring: #60A5FA;
+}
 
 @theme {
     --color-cv-background: var(--color-cv-background);
@@ -65,4 +69,38 @@
     --color-cv-appreance-toggle-btn-bg: var(--color-cv-appreance-toggle-btn-bg);
     --color-cv-appreance-toggle-btn-color: var(--color-cv-appreance-toggle-btn-color);
     --color-cv-appreance-toggle-btn-border: var(--color-cv-appreance-toggle-btn-border);
+    --color-cv-focus-ring: var(--color-cv-focus-ring);
+}
+
+body {
+    background-color: var(--color-cv-background);
+    color: var(--color-cv-text);
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-cv-focus-ring);
+    outline-offset: 3px;
+    border-radius: 3px;
+}
+
+.skip-nav {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    z-index: 100;
+    padding: 0.5rem 1rem;
+    background: var(--color-cv-background);
+    color: var(--color-cv-link);
+    font-weight: 600;
+    text-decoration: underline;
+    transition: top 0.1s;
+}
+.skip-nav:focus {
+    top: 0;
+}
+
+a {
+    :hover {
+        color: var(--color-cv-link-hover);
+    }
 }

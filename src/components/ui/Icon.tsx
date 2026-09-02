@@ -4,7 +4,13 @@ import { getDevIcon } from '@/lib/misc';
 
 const Icon = ({ tech, className }: { tech?: string; className?: string }) => {
   if (tech === 'email') {
-    return <LucideMail size={16} className={`inline-block pb-0 mbs-[-3] ${className ?? ''}`} />;
+    return (
+      <LucideMail
+        size={16}
+        aria-hidden="true"
+        className={`inline-block pb-0 mbs-[-3] ${className ?? ''}`}
+      />
+    );
   }
 
   const iconClass = tech?.includes('devicon') ? tech : `devicon-${getDevIcon(tech)}`;
