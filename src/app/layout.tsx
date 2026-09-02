@@ -1,9 +1,9 @@
 import React from 'react';
+import { Analytics } from '@vercel/analytics/next';
+import { DM_Sans } from 'next/font/google';
+import type { Metadata } from 'next';
 
 import '@/app/globals.css';
-
-import type { Metadata } from 'next';
-import { DM_Sans } from 'next/font/google';
 
 import Footer from '@/components/shared/Footer';
 import Header from '@/components/shared/Header';
@@ -40,6 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </section>
         </div>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
