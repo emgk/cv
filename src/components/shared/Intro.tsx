@@ -25,13 +25,13 @@ const Intro = async () => {
         </Link>
         <ul className="flex gap-4 pbs-2 list-none" role="list" aria-label="Contact links">
           {contactUrls.map((contact) => (
-            <li key={contact.id} role="listitem">
+            <li key={contact.id} role="listitem" className="inline-flex items-center">
               <Link
                 href={contact.url || ''}
                 aria-label={contact.title}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className="text-cv-text hover:text-cv-link transition-colors"
+                className="text-cv-text hover:text-cv-link transition-colors inline-flex items-center"
               >
                 <Icon tech={contact.icon} />
               </Link>

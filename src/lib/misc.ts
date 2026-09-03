@@ -11,6 +11,9 @@ export const getDevIcon = (tech?: string) => {
     case 'stackoverflow':
       techIcon = 'stackoverflow-plain';
       break;
+    case 'linkedin':
+      techIcon = 'linkedin-plain';
+      break;
     // case 'email':
     //   return <LucideMail size={16} className="pb-0 inline-block mbs-[-3]" />;
     case 'wordpress':
@@ -41,6 +44,12 @@ export const buildContactUrl = (devInfo: DevIntroType) => [
     icon: 'stackoverflow',
     title: 'StackOverflow Profile',
     url: devInfo?.stackOverflow,
+  },
+  {
+    id: 'linkedin',
+    title: 'LinkedIn Profile',
+    icon: 'linkedin',
+    url: devInfo?.linkedin,
   },
   {
     id: 'email',
