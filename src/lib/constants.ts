@@ -6,7 +6,7 @@ export const WORK_TYPE = {
 
 export const NAV_MENUS = [
   { name: 'Education', href: '/education' },
-  // { name: 'Contributions', href: '/contributions' },
+  { name: 'Contributions', href: '/contributions' },
   { name: 'Work History', href: '/' },
 ];
 

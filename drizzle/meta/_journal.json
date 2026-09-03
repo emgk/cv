@@ -29,6 +29,20 @@
       "when": 1788334411534,
       "tag": "0003_powerful_magik",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1788430673881,
+      "tag": "0004_calm_wasp",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1788430977565,
+      "tag": "0005_young_mandroid",
+      "breakpoints": true
     }
   ]
 }

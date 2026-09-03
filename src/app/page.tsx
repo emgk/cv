@@ -20,11 +20,12 @@ const ListRoles = async ({ jobId }: { jobId: number }) => {
     return <>Something went wrong!</>;
   }
 
-  return degress.map((degree) => (
+  return degress.map((role) => (
     <TimelineSubItem
-      key={degree?.id}
-      title={degree?.title ?? ''}
-      description={degree?.description}
+      key={role?.id}
+      title={role?.title ?? ''}
+      description={role?.description}
+      time={role?.start}
     />
   ));
 };

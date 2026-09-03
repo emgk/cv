@@ -82,3 +82,27 @@ export const getEducationDegrees = async (educationId: number) => {
     return null;
   }
 };
+
+export const getContributions = async () => {
+  'use cache';
+
+  try {
+    const contributions = await db.query.contributionsTable.findMany();
+    return contributions;
+  } catch (error) {
+    console.error('Error fetching contributions:', error);
+    return null;
+  }
+};
+
+export const getSkills = async () => {
+  'use cache';
+
+  try {
+    const skills = await db.query.skillsTable.findMany();
+    return skills;
+  } catch (error) {
+    console.error('Error fetching skills:', error);
+    return null;
+  }
+};

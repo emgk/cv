@@ -101,3 +101,13 @@ export const educationDegreesRelations = relations(educationDegreesTable, ({ one
     references: [educationTable.id],
   }),
 }));
+
+export const contributionsTable = pgTable('contributions', {
+  id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
+  date: date('date').$type<string>(),
+  title: text('title'),
+  description: text('description'),
+  url: text('url'),
+  demoUrl: text('demo_url'),
+  skills: jsonb('skills').$type<{ skills: number[]; otherSkills: string[] }>(),
+});

@@ -4,8 +4,16 @@ import React from 'react';
 import { LucideMail } from 'lucide-react';
 import { getDevIcon } from '@/lib/misc';
 
-const Icon = ({ tech, className }: { tech?: string; className?: string }) => {
-  const [isHovered, setIsHovered] = React.useState(false);
+const Icon = ({
+  tech,
+  className,
+  isHoveredInitially = false,
+}: {
+  tech?: string;
+  className?: string;
+  isHoveredInitially?: boolean;
+}) => {
+  const [isHovered, setIsHovered] = React.useState(isHoveredInitially);
 
   if (tech === 'email') {
     return (
@@ -23,8 +31,9 @@ const Icon = ({ tech, className }: { tech?: string; className?: string }) => {
     <i
       className={`${iconClass} ${className ?? ''} ${isHovered ? 'colored' : ''}`}
       aria-hidden="true"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      {...(!isHoveredInitially
+        ? { onMouseEnter: () => setIsHovered(true), onMouseLeave: () => setIsHovered(false) }
+        : {})}
     />
   );
 };
