@@ -1,30 +1,31 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import { THEME_COOKIE } from '@/lib/constants';
+import { IS_DARK } from '@/types/theme';
+import { LC_DARK_MODE_KEY } from '@/lib/constants';
 
-type Theme = 'light' | 'dark';
+const useThemeProvider = () => {
+  const [isDark, setIsDark] = useState<IS_DARK>(false);
 
-const useThemeProvider = (initialTheme: Theme = 'light') => {
-  const [theme, setTheme] = useState<Theme>(initialTheme);
+  useEffect(() => {
+    const dark = localStorage.getItem(LC_DARK_MODE_KEY) === '1';
 
-  const isDark = theme === 'dark';
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIsDark(dark);
+
+    document.documentElement.classList.toggle('dark', dark);
+  }, []);
 
   const toggle = () => {
-    setTheme((currentTheme) => {
-      const nextTheme: Theme = currentTheme === 'dark' ? 'light' : 'dark';
+    setIsDark((current) => {
+      const next = !current;
 
-      document.documentElement.classList.toggle('dark', nextTheme === 'dark');
+      localStorage.setItem(LC_DARK_MODE_KEY, next ? '1' : '0');
 
-      document.cookie = [
-        `${THEME_COOKIE}=${nextTheme}`,
-        'path=/',
-        'max-age=31536000',
-        'samesite=lax',
-      ].join('; ');
+      document.documentElement.classList.toggle('dark', next);
 
-      return nextTheme;
+      return next;
     });
   };
 

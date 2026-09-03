@@ -2,14 +2,8 @@
 
 import useThemeProvider from '@/app/hooks/useThemeProvider';
 
-type Theme = 'light' | 'dark';
-
-interface ThemeToggleProps {
-  initialTheme: Theme;
-}
-
-export default function ThemeToggle({ initialTheme }: ThemeToggleProps) {
-  const themeProvider = useThemeProvider(initialTheme);
+export default function ThemeToggle() {
+  const themeProvider = useThemeProvider();
   const isDark = themeProvider.isDark;
 
   const onClick = () => {
