@@ -10,4 +10,4 @@ export const NAV_MENUS = [
   { name: 'Work History', href: '/' },
 ];
 
-export const LC_DARK_MODE_KEY = 'theme-is-dark';
+export const THEME_COOKIE = 'theme';

@@ -1,24 +1,31 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-import { IS_DARK } from '@/types/theme';
-import { LC_DARK_MODE_KEY } from '@/lib/constants';
+import { THEME_COOKIE } from '@/lib/constants';
 
-const useThemeProvider = () => {
-  const isDarkTheme = localStorage.getItem(LC_DARK_MODE_KEY);
-  const [isDark, setIsDark] = useState<IS_DARK>('1' === isDarkTheme);
+type Theme = 'light' | 'dark';
 
-  useEffect(() => {
-    const cl = document.documentElement.classList;
-    cl?.[!isDark ? 'remove' : 'add']('dark');
-  }, [isDark]);
+const useThemeProvider = (initialTheme: Theme = 'light') => {
+  const [theme, setTheme] = useState<Theme>(initialTheme);
+
+  const isDark = theme === 'dark';
 
   const toggle = () => {
-    setIsDark(!isDark);
+    setTheme((currentTheme) => {
+      const nextTheme: Theme = currentTheme === 'dark' ? 'light' : 'dark';
 
-    // Store selected theme preference in local storage
-    localStorage.setItem(LC_DARK_MODE_KEY, !isDark ? '1' : '0');
+      document.documentElement.classList.toggle('dark', nextTheme === 'dark');
+
+      document.cookie = [
+        `${THEME_COOKIE}=${nextTheme}`,
+        'path=/',
+        'max-age=31536000',
+        'samesite=lax',
+      ].join('; ');
+
+      return nextTheme;
+    });
   };
 
   return {
