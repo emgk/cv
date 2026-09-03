@@ -9,3 +9,5 @@ export const NAV_MENUS = [
   // { name: 'Contributions', href: '/contributions' },
   { name: 'Work History', href: '/' },
 ];
+
+export const LC_DARK_MODE_KEY = 'theme-is-dark';
