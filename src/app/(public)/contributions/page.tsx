@@ -62,8 +62,8 @@ export default async function Contribution() {
   return (
     <div className="relative pbs-3 space-y-8">
       <Timeline
-        title="Contributions"
-        belowTitle="These are my contributions to the open source community beyond my job work."
+        title="Selected Work"
+        belowTitle="A selection of projects and open-source contributions I've worked on over the years."
         // description={contribution.description}
         // belowTitle={contribution?.date}
       >
@@ -74,10 +74,9 @@ export default async function Contribution() {
             belowTitle={
               <div className="flex text-xs font-normal pbs-2 gap-3 justify-between">
                 <div className="flex flex-wrap gap-2 items-center">
-                  <span>Skills:</span>{' '}
                   <SkillsStack skills={skills} contributionTech={contribution.skills} />
                 </div>
-                <div>
+                <div className="flex gap-2">
                   {contribution.url && (
                     <Link
                       href={contribution.url}
@@ -90,18 +89,15 @@ export default async function Contribution() {
                     </Link>
                   )}
                   {contribution.demoUrl && (
-                    <>
-                      <span> | </span>
-                      <Link
-                        href={contribution.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 hover:text-cv-link"
-                        aria-label="Open repository URL in a new tab text-cv-link"
-                      >
-                        Repo Url <SquareArrowOutUpRight size={12} aria-hidden="true" />
-                      </Link>
-                    </>
+                    <Link
+                      href={contribution.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 hover:text-cv-link"
+                      aria-label="Open repository URL in a new tab text-cv-link"
+                    >
+                      View <SquareArrowOutUpRight size={12} aria-hidden="true" />
+                    </Link>
                   )}
                 </div>
               </div>

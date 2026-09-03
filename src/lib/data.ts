@@ -87,7 +87,9 @@ export const getContributions = async () => {
   'use cache';
 
   try {
-    const contributions = await db.query.contributionsTable.findMany();
+    const contributions = await db.query.contributionsTable.findMany({
+      orderBy: (c, { desc }) => [desc(c.date)],
+    });
     return contributions;
   } catch (error) {
     console.error('Error fetching contributions:', error);

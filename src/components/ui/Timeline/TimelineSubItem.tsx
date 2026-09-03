@@ -31,7 +31,7 @@ const TimelineSubItem = ({
             {!!belowTitle && belowTitle}
           </div>
           <div
-            className="flex flex-col gap-2 text-sm text-cv-text leading-7 tracking-wide"
+            className="flex flex-col gap-2 text-sm leading-7 tracking-wide [&_a]:text-cv-link"
             dangerouslySetInnerHTML={{ __html: description || '' }}
           />
           <div className="text-xs flex gap-1.5 items-center absolute -left-10 top-[3] text-cv-sub-heading bg-cv-role-date-bg z-2">
