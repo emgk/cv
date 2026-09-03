@@ -105,7 +105,7 @@ export default async function Contribution() {
             displayTitleSectionAsStack={true}
             description={contribution?.description}
             time={contribution.date}
-            renderMonth
+            // renderMonth
           />
         ))}
       </Timeline>
