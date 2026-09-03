@@ -67,7 +67,7 @@ export default async function Contribution() {
         // description={contribution.description}
         // belowTitle={contribution?.date}
       >
-        {contributions?.map((contribution) => (
+        {contributions?.map((contribution, index) => (
           <TimelineSubItem
             key={contribution?.id}
             title={contribution?.title ?? ''}
@@ -104,7 +104,11 @@ export default async function Contribution() {
             }
             displayTitleSectionAsStack={true}
             description={contribution?.description}
-            time={contribution.date}
+            time={
+              contribution?.date?.slice(0, 4) !== contributions?.[index - 1]?.date?.slice(0, 4)
+                ? contribution.date
+                : undefined
+            }
             // renderMonth
           />
         ))}
