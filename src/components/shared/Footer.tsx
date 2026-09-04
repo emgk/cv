@@ -9,8 +9,8 @@ const Footer = () => {
       className="border-t mbs-8 border-t-cv-timeline-stale text-center px-10 py-10"
     >
       <p className="text-sm text-cv-sub-heading pbe-2">
-        Built from scratch without using AI, with Next.js (SSR), Drizzle, PostgreSQL, Tailwind CSS,
-        and TypeScript.
+        Built from scratch (no AI), with Next.js (SSR), Drizzle, PostgreSQL, Tailwind CSS, and
+        TypeScript.
       </p>
       <p className="text-xs text-cv-sub-heading">
         Feel free to check out the source code:{' '}
